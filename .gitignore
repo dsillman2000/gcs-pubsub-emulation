@@ -1,0 +1,8 @@
+# Gitignore template for terraform
+
+# Local .terraform artifacts
+.terraform/
+.terraform.lock.hcl
+*.tfplan
+*.tfstate
+*.tfstate.backup
