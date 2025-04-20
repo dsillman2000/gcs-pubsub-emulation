@@ -33,10 +33,10 @@ services:
       DYNAMIC_CONFIG_ENABLED: 'true'
       KAFKA_CLUSTERS_0_NAME: 'local'
       KAFKA_CLUSTERS_0_BOOTSTRAP_SERVERS: 'kafka:9092'
-  producer:
+  validator:
     build: 
       context: ./services
-      dockerfile: ./producer/Dockerfile
+      dockerfile: ./validator/Dockerfile
     depends_on:
       - kafka
     environment:
@@ -46,10 +46,10 @@ services:
       - default
     volumes:
       - storage:/storage
-  consumer:
+  checksummer:
     build:
       context: ./services
-      dockerfile: ./consumer/Dockerfile
+      dockerfile: ./checksummer/Dockerfile
     depends_on:
       - kafka
     environment:
