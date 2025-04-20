@@ -41,8 +41,11 @@ services:
       - kafka
     environment:
       BOOTSTRAP_SERVERS: kafka:9092
+      WATCHED_DIRECTORY: /storage
     networks:
       - default
+    volumes:
+      - storage:/storage
   consumer:
     build:
       context: ./services
@@ -51,7 +54,17 @@ services:
       - kafka
     environment:
       BOOTSTRAP_SERVERS: kafka:9092
+      WATCHED_DIRECTORY: /storage
     networks:
       - default
+    volumes:
+      - storage:/storage
 networks:
   default:
+volumes:
+  storage:
+    driver: local
+    driver_opts:
+      type: none
+      device: ./storage
+      o: bind
