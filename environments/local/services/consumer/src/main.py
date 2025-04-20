@@ -1,7 +1,7 @@
 import json
 
+from common.config import Settings
 from kafka import KafkaConsumer
-from src.config import Settings
 
 
 def main():

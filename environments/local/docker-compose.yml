@@ -34,7 +34,9 @@ services:
       KAFKA_CLUSTERS_0_NAME: 'local'
       KAFKA_CLUSTERS_0_BOOTSTRAP_SERVERS: 'kafka:9092'
   producer:
-    build: ./services/producer
+    build: 
+      context: ./services
+      dockerfile: ./producer/Dockerfile
     depends_on:
       - kafka
     environment:
@@ -42,7 +44,9 @@ services:
     networks:
       - default
   consumer:
-    build: ./services/consumer
+    build:
+      context: ./services
+      dockerfile: ./consumer/Dockerfile
     depends_on:
       - kafka
     environment:

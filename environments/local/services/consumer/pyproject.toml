@@ -10,7 +10,10 @@ dependencies = [
 ]
 
 [tool.poetry]
-packages = [{ include = "src" }]
+packages = [
+    { include = "src" },
+    { include = "common", from = "..", to = "common" },
+]
 
 [tool.poetry.scripts]
 main = "src.main:main"

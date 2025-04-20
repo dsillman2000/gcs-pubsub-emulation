@@ -1,8 +1,8 @@
 import json
 import time
 
+from common.config import Settings
 from kafka import KafkaProducer
-from src.config import Settings
 
 
 def main():
